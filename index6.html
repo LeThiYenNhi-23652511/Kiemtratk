@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .error {
+        background-color: red;
+    }
+    .success {
+        background-color: green;
+    }
+</style>
+<body>
+    <input type="text" id="username" placeholder="Nhập...">
+    <button onclick="kiemtrausername()">Check</button>
+    <p id="result"></p>
+    <script>
+        function kiemtrausername() {
+            var username = document.getElementById("username").value;
+            var result = document.getElementById("result");
+            var regex = /^[a-zA-Z0-9_]{5,15}$/;
+            if (regex.test(username)) {
+                result.innerText = "Username hợp lệ"
+                result.className = "success";
+            } else {
+                result.innerText = "Username không hợp lệ"
+                result.className = "error";
+            }
+        }
+    </script>
+</body>
+
+</html>
