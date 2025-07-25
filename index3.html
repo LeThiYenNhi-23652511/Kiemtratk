@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .error {
+        background-color: red;
+    }
+    .success {
+        background-color: green;
+    }
+</style>
+<body>
+    <input type="text" id="passInput" placeholder="Password">
+    <button onclick="kiemtramatkhau()">Check</button>
+    <p id="result"></p>
+    <script>
+        function kiemtramatkhau() {
+            var password = document.getElementById("passInput").value;
+            var result = document.getElementById("result");
+            var regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+            if (regex.test(password)) {
+                result.innerText = "Mật khẩu hợp lệ"
+                result.className = "success"
+            } else {
+                result.innerText = "Mật khẩu không hợp lệ"
+                result.className = "error"
+            }
+        }
+    </script>
+</body>
+</html>
