@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .error {
+        background-color: red;
+    }
+    .success {
+        background-color: green;
+    }
+</style>
+<body>
+    <input type="text" id="ip" placeholder="VD:192.168.1.1">
+    <button onclick="kiemtradiachiip()">Check</button>
+    <p id="result"></p>
+    <script>
+        function kiemtradiachiip() {
+            var ip = document.getElementById("ip").value;
+            var result = document.getElementById("result");
+            var regex = /^(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)){3}$/;
+            if (regex.test(ip)) {
+                result.innerText = "Địa chỉ IP hợp lệ"
+                result.className = "success";
+            } else {
+                result.innerText = "Địa chỉ IP không hợp lệ"
+                result.className = "error";
+            }
+        }
+    </script>
+</body>
+</html>
