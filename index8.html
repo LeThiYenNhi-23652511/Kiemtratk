@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .error {
+        background-color: red;
+    }
+    .success {
+        background-color: green;
+    }
+</style>
+<body>
+    <input type="text" id="mabuudien" placeholder="Nhập...">
+    <button onclick="kiemtramabuudien()">Check</button>
+    <p id="result"></p>
+    <script>
+        function kiemtramabuudien() {
+            var mabuudien = document.getElementById("mabuudien").value;
+            var result = document.getElementById("result");
+            var regex = /^\d{5}$/;
+            if (regex.test(mabuudien)) {
+                result.innerText = "Mã bưu điện hợp lệ"
+                result.className = "success";
+            } else {
+                result.innerText = "Mã bưu điện không hợp lệ"
+                result.className = "error";
+            }
+        }
+    </script>
+</body>
+</html>
