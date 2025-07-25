@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .error {
+        background-color: red;
+    }
+    .success {
+        background-color: green;
+    }
+</style>
+<body>
+    <input type="text" id="nameInput" placeholder="Nhập...">
+    <button onclick="kiemtraten()">Check</button>
+    <p id="result"></p>
+    <script>
+        function kiemtraten() {
+            var name = document.getElementById("nameInput").value;
+            var result = document.getElementById("result");
+            var regex = /^[A-Za-zÀ-ỹ\s]+$/;
+            if (name === "") {
+                result.innerText = "Không được để trống"
+                result.className = "error"
+            } else if (regex.test(name)) {
+                result.innerText = "Họ tên hợp lệ"
+                result.className = "success"
+            } else {
+                result.innerText = "Họ tên không chứa số và ký tự đặt biệt"
+                result.className = "error"
+            }
+        }
+    </script>
+</body>
+</html>

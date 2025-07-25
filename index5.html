@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .error {
+        background-color: red;
+    }
+    .success {
+        background-color: green;
+    }
+</style>
+<body>
+    <input type="text" id="dateInput" placeholder="dd/mm/yyyy">
+    <button onclick="kiemtradate()">Check</button>
+    <p id="result"></p>
+    <script>
+        function kiemtradate() {
+            var dod = document.getElementById("dateInput").value;
+            var result = document.getElementById("result");
+            var regex = /^(\d{2})\/(\d{2})\/(\d{4})$/;
+            var match = dod.match(regex);
+            var day = parseInt(match[1]);
+            var month = parseInt(match[2] - 1);
+            var year = parseInt(match[3]);
+            var date = new Date(year, month, day);
+            if (!match) {
+                result.innerText = "Sai định dạng"
+                result.className = "error"
+                return;
+            }
+            else if (
+                date.getFullYear() === year &&
+                date.getMonth() === month &&
+                date.getDate() === day
+            ) {
+                result.innerText = "Ngày sinh hợp lệ"
+                result.className = "success";
+            } else {
+                result.innerText = "Ngày sinh không hợp lệ"
+                result.className = "error";
+            }
+        }
+    </script>
+</body>
+</html>
