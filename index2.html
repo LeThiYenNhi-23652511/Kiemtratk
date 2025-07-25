@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .error{background:red;}
+    .success{background:green;}
+</style>
+<body>
+    <input type="text" id="phoneInput" placeholder="Ví dụ: 0987654321">
+    <button onclick="kiemTraSDT()">Kiểm tra</button>
+    <p id="result"></p>
+    <script>
+        function kiemTraSDT() {
+           var phone = document.getElementById("phoneInput").value;
+           var result = document.getElementById("result");
+           var regex = /^0\d{9}$/;
+           if (regex.test(phone)) {
+              result.innerText = "Số điện thoại hợp lệ";
+              result.className = "success";
+            } else {
+              result.innerText = "Số điện thoại không hợp lệ";
+              result.className = "error";
+            }
+        }
+    </script>
+</body>
+</html>
